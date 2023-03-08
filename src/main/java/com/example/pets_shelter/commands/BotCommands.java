@@ -8,6 +8,10 @@ import lombok.Data;
 import java.util.List;
 
 
+/**
+ * Класс с инициализацией кнопок
+ * и их обработкой
+ */
 @Data
 public class BotCommands {
 
@@ -40,6 +44,11 @@ public class BotCommands {
         }
     }
 
+    /**
+     * /start command handler
+     * @param message
+     * @param bot
+     */
     private void handleStartCommand(Message message, TelegramBot bot) {
         SendMessage response = new SendMessage(
                 message.chat().id(),
@@ -58,6 +67,11 @@ public class BotCommands {
         bot.execute(response);
     }
 
+    /**
+     * /help command handler
+     * @param message
+     * @param bot
+     */
     private void handleHelpCommand(Message message, TelegramBot bot) {
         SendMessage response = new SendMessage(
                 message.chat().id(),
@@ -74,6 +88,11 @@ public class BotCommands {
         bot.execute(response);
     }
 
+    /**
+     * /info command handler
+     * @param message
+     * @param bot
+     */
     private void handleInfoCommand(Message message, TelegramBot bot) {
         List<InlineKeyboardButton> inlineKeyboardButtons = List.of(
                 new InlineKeyboardButton("Узнать о приюте").callbackData("shelterInfo"),
@@ -98,6 +117,11 @@ public class BotCommands {
         bot.execute(response);
     }
 
+    /**
+     * /howToTakeADog command handler
+     * @param message
+     * @param bot
+     */
     private void handleHowToTakeADog(Message message, TelegramBot bot) {
         SendMessage response = new SendMessage(
                 message.chat().id(),
@@ -109,6 +133,11 @@ public class BotCommands {
         bot.execute(response);
     }
 
+    /**
+     * /volunteer command handler
+     * @param message
+     * @param bot
+     */
     private void handleCallVolunteer(Message message, TelegramBot bot) {
         SendMessage response = new SendMessage(
                 message.chat().id(),
@@ -120,6 +149,11 @@ public class BotCommands {
         bot.execute(response);
     }
 
+    /**
+     * callback of command shelterInfo handler
+     * @param message
+     * @param bot
+     */
     private void handleShelterInfo(Message message, TelegramBot bot){
         SendMessage response = new SendMessage(
             message.chat().id(),
@@ -130,6 +164,12 @@ public class BotCommands {
         );
         bot.execute(response);
     }
+
+    /**
+     * callback of command shelterSchedule handler
+     * @param message
+     * @param bot
+     */
     private void handleShelterSchedule(Message message, TelegramBot bot){
         SendMessage response = new SendMessage(
             message.chat().id(),
@@ -140,6 +180,12 @@ public class BotCommands {
         );
         bot.execute(response);
     }
+
+    /**
+     * callback of command shelterLocation handler
+     * @param message
+     * @param bot
+     */
     private void handleShelterLocation(Message message, TelegramBot bot){
         SendMessage response = new SendMessage(
             message.chat().id(),
@@ -150,6 +196,12 @@ public class BotCommands {
         );
         bot.execute(response);
     }
+
+    /**
+     * callback of command shelterSafetyPrecautions handler
+     * @param message
+     * @param bot
+     */
     private void handleShelterSafetyPrecautions(Message message, TelegramBot bot){
         SendMessage response = new SendMessage(
             message.chat().id(),
@@ -160,6 +212,12 @@ public class BotCommands {
         );
         bot.execute(response);
     }
+
+    /**
+     * callback of command leaveContacts handler
+     * @param message
+     * @param bot
+     */
     private void handleLeaveContacts(Message message, TelegramBot bot){
         SendMessage response = new SendMessage(
             message.chat().id(),
@@ -171,6 +229,11 @@ public class BotCommands {
         bot.execute(response);
     }
 
+    /**
+     * unknown command handler
+     * @param message
+     * @param bot
+     */
     private void handleUnknownCommand(Message message, TelegramBot bot) {
         SendMessage response = new SendMessage(
                 message.chat().id(),

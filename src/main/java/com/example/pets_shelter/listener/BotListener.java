@@ -32,6 +32,11 @@ public class BotListener implements UpdatesListener {
         telegramBot.setUpdatesListener(this);
     }
 
+    /**
+     * Updates the bot
+     * @param updates available updates
+     * @return
+     */
     @Override
     public int process(List<Update> updates) {
         updates.forEach(update -> {
